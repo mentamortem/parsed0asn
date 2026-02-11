@@ -1,0 +1,22 @@
+auth:
+  postgresPassword: "foo"
+  username: "foo"
+  password: "foo"
+  database: "foo"
+
+primary:
+  persistence:
+    enabled: true
+    size: 10Gi
+
+  resources:
+    requests:
+      cpu: 200m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+service:
+  ports:
+    postgresql: 5432
