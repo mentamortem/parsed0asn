@@ -13,5 +13,5 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(raw[0:10000])
+	fmt.Println(parser.ParseObjects(raw[0:100000]))
 }

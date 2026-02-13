@@ -1,15 +1,11 @@
 package parser
 
 import (
+	"database/sql"
 	"fmt"
-	"os"
-
 	rpsl "github.com/frederic-arr/rpsl-go"
+	"os"
 )
-
-type parsedRPSL struct {
-	Attribute []rpsl.Attribute
-}
 
 func ProcessFile(path string) (string, error) {
 	data, err := os.ReadFile(path)
@@ -18,16 +14,11 @@ func ProcessFile(path string) (string, error) {
 	}
 	return string(data), nil
 }
-func ParseObjects(raw string) (*rpsl.Object, error) {
+func ParseObjects(raw string, db *sql.DB) ([]rpsl.Object, error) {
 	objects, err := rpsl.ParseMany(raw)
 
 	if err != nil {
 		return nil, fmt.Errorf("Error parsing RPSL data: %v\n", err)
 	}
-
-	for _, obj := range objects {
-		return &obj, nil
-	}
-
-	return nil, fmt.Errorf("Error parsing RPSL objects: %v\n", objects)
+	return objects, nil
 }

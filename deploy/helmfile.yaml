@@ -1,8 +1,6 @@
 repositories:
   - name: bitnami
     url: https://charts.bitnami.com/bitnami
-  - name: runix
-    url: https://helm.runix.net/
 
 releases:
   - name: postgresql
@@ -10,9 +8,3 @@ releases:
     chart: bitnami/postgresql
     values:
       - ./pgsql/values.yaml
-
-  - name: pgadmin
-    namespace: postgresql
-    chart: runix/pgadmin4
-    values:
-      - ./pgsql-admin/values.yaml

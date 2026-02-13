@@ -2,7 +2,7 @@ auth:
   postgresPassword: "foo"
   username: "foo"
   password: "foo"
-  database: "foo"
+  database: "EU-ASN"
 
 primary:
   persistence:
@@ -17,6 +17,7 @@ primary:
       cpu: 500m
       memory: 512Mi
 
-service:
-  ports:
-    postgresql: 5432
+  service:
+    type: NodePort
+    nodePorts:
+      postgresql: 30432
